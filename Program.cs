@@ -8,11 +8,23 @@ namespace Exceptions
         {
             var arr = new int[3];
 
-            for (var index = 0; index < 10; index++)
+            try
             {
-                Console.WriteLine(arr[index]);
-                // System.IndexOutOfRangeException
+                for (var index = 0; index < 10; index++)
+                {
+                    Console.WriteLine(arr[index]);
+
+                }
+
             }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(ex.InnerException);
+                // Console.WriteLine(ex.Message);
+                Console.WriteLine("Ops, algo deu errado!");
+            }
+
+
         }
     }
 }
