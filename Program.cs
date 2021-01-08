@@ -18,7 +18,7 @@ namespace Exceptions
                 Cadastrar("");
             }
 
-            catch (IndexOutOfRangeException ex)
+            catch (MinhaExeption ex)
             {
                 Console.WriteLine(ex.InnerException);
                 Console.WriteLine(ex.Message);
@@ -32,11 +32,17 @@ namespace Exceptions
                 Console.WriteLine("Ops, algo deu errado!");
             }
         }
-        static void Cadastrar(string texto)
+        private static void Cadastrar(string texto)
         {
             if (string.IsNullOrEmpty(texto))
                 throw new ArgumentNullException("O texto não pode ser nulo ou vazio");
         }
+
+        public class MinhaExeption : Exception
+        {
+            public DateTime QuandoAconteceu { get; set; }
+        }
+
 
     }
 }
